@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/bmabey/database_cleaner.git
-  revision: 071ee4a7ce21b861329006afc65a250859f0ae7d
+  revision: 9755bc55dcb2b2f17df15e4d8fe94772487c2404
   specs:
     database_cleaner (1.6.1)
 
@@ -35,7 +35,7 @@ GEM
     daemons (1.2.4)
     diff-lcs (1.3)
     eventmachine (1.2.3)
-    i18n (0.8.1)
+    i18n (0.8.4)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -49,6 +49,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-nav (0.2.4)
+      pry (>= 0.9.10, < 0.11.0)
     public_suffix (2.0.5)
     rack (2.0.3)
     rack-protection (2.0.0)
@@ -115,6 +117,7 @@ DEPENDENCIES
   capybara
   database_cleaner!
   pry
+  pry-nav
   rack-test
   rake
   require_all
