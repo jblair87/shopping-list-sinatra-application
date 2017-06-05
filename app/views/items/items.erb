@@ -1,0 +1,11 @@
+<h2>Welcome, <%=current_user.username %></h2>
+
+  <% @items.each do |item| %>
+<p>
+<%=item.name%>
+</p>
+  <%end%>
+
+  <br><br>
+
+  <a href ='items/create' class='btn btn-default'>Add Items</button>
