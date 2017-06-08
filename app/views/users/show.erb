@@ -1,0 +1,10 @@
+<h1>Welcome <%= @user.username %></h1>
+<h4>Your Shopping List</h4>
+  <% @user.items.each do |item| %>
+  <div>
+  <%= item.name %> <%= item.quantity %>
+</div>
+  <% end %>
+
+ <a href ='items/create' class='btn btn-default' role="button">Add Items</a>
+    <a class="btn btn-default" href="#" role="button">Log Out</a>

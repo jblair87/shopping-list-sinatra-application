@@ -1,0 +1,13 @@
+<div class="container">
+
+<h1> <%= @item.name %> </h1>
+<h1> <%= @item.quantity %> </h1>
+
+
+<button class="btn btn-default"><a href="/items/<%= @item.id %>/edit">Edit Item</a></button>
+
+<form action="/items/<%=@item.id %>/delete" method="post">
+  <input type="hidden" id="hidden" name="_method" value="delete">
+  <input type="submit" class="btn btn-danger" value="delete item">
+</form>
+</div>
