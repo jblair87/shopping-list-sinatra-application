@@ -9,9 +9,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  get '/items/create' do
+  get '/items/new' do
     if logged_in?
-      erb :'items/create'
+      erb :'items/new'
     else
       redirect to '/login'
     end
