@@ -65,7 +65,7 @@ class ItemsController < ApplicationController
       @item = Item.find(params[:id])
       if session[:user_id]
             @item = Item.find(params[:id])
-  if @project.user_id == session[:user_id]
+  if @item.user_id == session[:user_id]
       @item.delete
         redirect to '/items'
       else
