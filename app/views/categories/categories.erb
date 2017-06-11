@@ -1,0 +1,9 @@
+
+<h2>Categories</h2>
+<div><a href="/categories/new" class="btn btn-default">Add</a></div>
+
+<% @user.categories.each do |category| %>
+  <div>
+    <h2><a href="/categories/<%= category.id %>"><%= category.name %></a></h2>
+  </div>
+<% end %>

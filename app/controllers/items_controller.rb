@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
 
   get '/items' do
     if logged_in?
-      @items = Item.all
    erb :'items/items'
   else
     redirect to '/login'
@@ -28,8 +27,8 @@ class ItemsController < ApplicationController
  end
 
   get '/items/:id' do
+    @item = Item.find(params[:id])
     if logged_in?
-      @item = Item.find(params[:id])
       erb :'items/show'
     else
       redirect to '/login'
@@ -37,14 +36,10 @@ class ItemsController < ApplicationController
   end
 
   get '/items/:id/edit' do
-    if logged_in?
-      @item = Item.find(params[:id])
-      if @item.user_id == session[:user_id]
+    @item = Item.find(params[:id])
+    if logged_in? && @item.user_id == session[:user_id]
        erb :'items/edit'
       else
-        redirect to '/items'
-      end
-    else
       redirect to '/login'
     end
   end
@@ -63,15 +58,10 @@ class ItemsController < ApplicationController
 
   delete '/items/:id/delete' do
       @item = Item.find(params[:id])
-      if session[:user_id]
-            @item = Item.find(params[:id])
-  if @item.user_id == session[:user_id]
+      if logged_in? && @item.user_id == session[:user_id]
       @item.delete
         redirect to '/items'
       else
-        redirect to '/items'
-      end
-    else
       redirect to '/login'
     end
   end
