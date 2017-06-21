@@ -1,7 +1,11 @@
 <h1>Welcome, <%=current_user.username %></h1>
-
+<h2>Your Lists</h2>
   <% @lists.each do |list| %>
-<p>
+<h3>
 <%=list.name%>
-</p>
+</h3>
   <%end%>
+
+  <form method="GET" action="/new">
+    <input type="submit" value="Add New List">
+  </form><br>

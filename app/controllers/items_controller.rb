@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
 
   post '/items' do
     if logged_in?
-      unless params[:name].empty? || params[:category_id].empty? || params[:list_id].empty?
+      unless params[:name].empty? || params[:list_id].empty?
         @item = Item.create(params)
         redirect to "/items/#{@item.id}"
    else
@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
  end
 
   get '/items/:id' do
-    @item = current_user.items.find_by(id: params[:id])
+    @item = current_user.items.find_by(params[:id])
     if @item
       erb :'items/show'
     else
@@ -53,7 +53,6 @@ class ItemsController < ApplicationController
     else
       @item = Item.find_by(params[:id])
       @item.name = params[:name]
-      @item.quantity = params[:quantity]
       @item.save
       redirect to "/items/#{@item.id}"
     end
