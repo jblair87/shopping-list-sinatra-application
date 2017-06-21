@@ -17,18 +17,20 @@ class ItemsController < ApplicationController
   end
 
   post '/items' do
-    if params.values.any? {|value| value == ""}
-     redirect to "/items/new"
+    if logged_in?
+      unless params[:name].empty? || params[:category_id].empty? || params[:list_id].empty?
+        @item = Item.create(params)
+        redirect to "/items/#{@item.id}"
    else
-      user = User.find(session[:user_id])
-     @item = Item.create(name: params[:name], quantity: params[:quantity])
-    redirect to "/items/#{@item.id}"
+   redirect to "/items/new"
+ end
+ redirect '/login'
    end
  end
 
   get '/items/:id' do
-    @item = Item.find(params[:id])
-    if logged_in?
+    @item = current_user.items.find_by(id: params[:id])
+    if @item
       erb :'items/show'
     else
       redirect to '/login'
@@ -36,19 +38,20 @@ class ItemsController < ApplicationController
   end
 
   get '/items/:id/edit' do
-    @item = Item.find(params[:id])
-    if logged_in? && @item.user_id == session[:user_id]
+    @item = current_user.items.find_by(id: params[:id])
+    if @item
        erb :'items/edit'
       else
-      redirect to '/login'
+      redirect to '/items'
     end
   end
 
   patch '/items/:id' do
-    if params[:name] == ""
+    @item = current_user.items.find_by(id: params[:id])
+    if @items
       redirect to "/items/#{params[:id]}/edit"
     else
-      @item = Item.find(params[:id])
+      @item = Item.find_by(params[:id])
       @item.name = params[:name]
       @item.quantity = params[:quantity]
       @item.save
@@ -57,7 +60,7 @@ class ItemsController < ApplicationController
   end
 
   delete '/items/:id/delete' do
-      @item = Item.find(params[:id])
+      @item = Item.find_by_id(params[:id])
       if logged_in? && @item.user_id == session[:user_id]
       @item.delete
         redirect to '/items'

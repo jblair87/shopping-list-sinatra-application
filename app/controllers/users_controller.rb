@@ -5,32 +5,28 @@ get '/signup' do
 end
 
 post '/signup' do
-if params[:username] == "" || params[:password] == ""
+  if params.values.include?("")
  redirect to '/signup'
 else
-  user = User.create(params)
-session[:user_id] = user.id
-  redirect to '/categories'
+  @user = User.create(params)
+session[:user_id] = @user.id
+  redirect '/lists'
 end
 end
 
 
 
 get '/login' do
-  if !logged_in?
-  erb :'users/login'
-else
-  redirect to '/categories'
-end
+erb :'users/login'
 end
 
 post '/login' do
-   user = User.find_by(:username => params[:username])
-   if user && user.authenticate(params[:password])
-     session[:user_id] = user.id
-     redirect '/categories'
+   @user = User.find_by(username: params[:username])
+   if @user && @user.authenticate(params[:password])
+     session[:user_id] = @user.id
+     redirect '/lists'
    else
-     erb :'users/login'
+     redirect '/login'
    end
  end
 

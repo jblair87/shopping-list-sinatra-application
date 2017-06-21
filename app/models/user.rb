@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-has_many :categories
-has_many :items, through: :categories
-   has_secure_password
+has_many :lists
+has_many :items, through: :lists
+has_secure_password
 end

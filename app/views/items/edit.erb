@@ -2,6 +2,5 @@
 <form method="post" action="/items/<%=@item.id%>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
   <input type="text" name="name" value="<%= @item.name %>">
-    <input type="integer" name="quantity" value="<%= @item.quantity %>">
   <input type="submit" value="update">
 </form>

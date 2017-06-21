@@ -1,23 +1,7 @@
-<h2>Sinatra Shopping List</h2>
 <h3>Create New Item</h3>
-</br>
-<form  action="/items" method="POST">
-
-<label>Item Name </label>
-<input type="text" class="form-control" id="name"  name="item[name]" >
-  <br></br>
-<label>Item Quantity </label>
- <input type="integer" class="form-control" id="quantity"  name="item[quantity]" >
-
-  <br></br>
-<label>Add Category</label>
-  <%Category.all.each do |category|%>
-    <input type="checkbox" name="item[category_id]" id="<%= category.name %>" value="<%=category.id%>"><%=category.name%></input>
-  <%end%>
-
-  <br></br>
-    <label>Create Category</label>
-      <input  type="text" name="category[name]" id="category_name"></input>
-    <br></br>
- <button type="submit" class="btn btn-primary">Create Item </button>
+<form method="POST" action="/items">
+  <label for="item_name">Item Name:</label>
+<input type="text" name="name" id="item_name"><br><br>
+   <input type="submit"  class="btn btn-primary" value="Create Item">
 </form>
+
