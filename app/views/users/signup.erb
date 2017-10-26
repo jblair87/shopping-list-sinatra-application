@@ -1,6 +1,11 @@
+<% unless locals.empty? %>
+  <%= message %>
+<% end %>
+
+
 <h3>Sign Up</h3>
 <form method="POST" action="/signup">
-  <input type="text" name="username" placeholder="Username"><br><br>
-  <input type="password" name="password" placeholder="Password"><br><br>
+<p> Username:  <input type="text" name="username" ></p>
+  <p> Password: <input type="password" name="password"></p>
    <input type="submit"  class="btn btn-primary" value="Sign Up" id="submit">
 </form>
