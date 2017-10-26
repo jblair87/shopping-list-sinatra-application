@@ -1,7 +1,6 @@
 <h3>Edit List Name</h3>
-<form method="POST" action="/lists/<%= @list.id %>">
-  <input id="hidden" type="hidden" name="_method" value="PATCH">
+<form method="POST" action="/lists/<%=@list.id%>">
   <label for="list_name">List Name:</label>
 <input type="text" name="name" id="list_name" value="<%= @list.name %>"><br><br>
-   <input type="submit"  class="btn btn-primary" value="Edit List">
+   <input type="submit"  class="btn btn-primary" value="Update">
 </form>

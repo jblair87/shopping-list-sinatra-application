@@ -1,19 +1,9 @@
+<%= @list.name %><br />
 
-<h1><%=@list.name%></h1>
-<h4>Items:</h4>
+
 <ul>
-  <%@list.items.each do |item|%>
-  <li><%=item.name%></li>
-  <%end%>
-</ul>
-
-
-
-<form method="GET" action="/items/new">
-  <input type="submit" value="Add Items">
-</form><br>
-
-<form method="post" action="/lists/<%=@list.id%>/delete">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete List">
-</form>
+ <% @list.items.each do |item| %>
+   <li><a href="/items/<%=item.id%>"><%= item.name %></a></li>
+ <% end%>
+ </ul>
+ <a href="/lists/<%=@list.id%>/edit">Edit</a>
