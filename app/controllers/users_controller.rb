@@ -32,7 +32,11 @@ post '/login' do
 
 
  get '/logout' do
-   session.clear
+   if logged_in?
+   session.destroy
       redirect to '/login'
+    else
+      redirect to '/'
+    end
  end
 end

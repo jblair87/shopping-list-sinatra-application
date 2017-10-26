@@ -7,10 +7,13 @@
   <%end%>
 </ul>
 
+
+
 <form method="GET" action="/items/new">
   <input type="submit" value="Add Items">
 </form><br>
 
-<form method="GET" action="/lists">
-  <input type="submit" value="View All Lists">
-</form><br>
+<form method="post" action="/lists/<%=@list.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete List">
+</form>
