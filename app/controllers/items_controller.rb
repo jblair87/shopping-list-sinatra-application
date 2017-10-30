@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
     if logged_in?
       unless params[:name].empty? || params[:list_id].empty?
         @item = Item.create(params)
+        @item.save
         redirect to "/items/#{@item.id}"
    else
    redirect to "/items/new"

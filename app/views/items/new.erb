@@ -2,10 +2,14 @@
 <form method="POST" action="/items">
   <label for="item_name">Item Name:</label>
 <input type="text" name="name" id="item_name"><br><br>
-<label>Select List:</label>
+<label>Choose an existing list</label>
 <%List.all.each do |list|%><br>
-<input type="checkbox" name="list_id" id="<%=list.name %>"
+<input type="checkbox" name="list_id" id="<%=list.id %>"
   value="<%=list.id%>"> <b><%=list.name%><b></input>
- <%end%> <br></br>
+ <%end%> <br></br><label>and/or, create a new list:</label>
+    <br></br>
+    <label>name:</label>
+      <input  type="text" name="list[name]"></input>
+    <br></br>
    <input type="submit"  class="btn btn-primary" value="Create Item">
 </form>

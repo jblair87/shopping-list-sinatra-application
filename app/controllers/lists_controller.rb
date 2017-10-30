@@ -9,41 +9,37 @@ class ListsController < ApplicationController
   end
 
   get '/lists/new' do
-    if logged_in?
+       @items = Item.all
       erb :'lists/new'
-    else
-      redirect to '/login'
-    end
   end
 
   post '/lists' do
-    if params.values.any? {|value| value == ""}
-     redirect to "/lists/new"
-   else
-      @list = current_user.lists.create(name: params[:name])
+    @list = List.create(params[:list])
+    if !params["item"]["name"].empty?
+    @list.items << Item.create(name: params["item"]["name"])
+  end
+      @list.save
     redirect to "/lists/#{@list.id}"
-   end
   end
 
   get '/lists/:id' do
-    @list = current_user.lists.find_by(id: params[:id])
-    if @list
-      erb :'lists/show'
-    else
-      redirect to '/login'
-    end
+    @list = List.find(params[:id])
+      erb :'/lists/show'
   end
 
   get '/lists/:id/edit' do
-    @list = current_user.lists.find_by(id: params[:id])
-    if @list
-       erb :'lists/edit'
-      else
-      redirect to '/lists'
-    end
+    @list = List.find(params[:id])
+    erb :'/lists/edit'
   end
 
-
+  post '/lists/:id' do
+    @list = List.find(params[:id])
+    @list.update(params["list"])
+    if !params["item"]["name"].empty?
+      @list.items << Item.create(name: params["item"]["name"])
+    end
+    redirect to "list/#{@list.id}"
+  end
 
   delete '/lists/:id/delete' do
       if logged_in?
