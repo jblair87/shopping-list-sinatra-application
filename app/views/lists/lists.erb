@@ -2,10 +2,6 @@
 <br>
   <% @lists.each do |list| %>
 <li>
-<%=list.name%>
+<a href="/lists/<%=list.id%>"><%=list.name%></a>
 </li>
   <%end%>
-<br>
-  <form method="GET" action="lists/new">
-    <input type="submit" class="btn btn-primary" value="Add New List">
-  </form><br>

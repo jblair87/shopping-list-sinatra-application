@@ -1,7 +1,7 @@
 <h3>Create New List</h3>
 <form method="POST" action="/lists">
-  <label for="list_name">List Name:</label>
-<input type="text" name="name" id="list_name"><br><br>
+  <label>List Name:</label>
+<input type="text" name="list[name]"><br><br>
 <label>Choose an existing item:</label>
 <br>
 <%Item.all.each do |item|%><br>

@@ -1,6 +1,7 @@
 <p> Here are your lists, <%= @user.username %>
+
 <% @user.lists.each do |list| %>
-  <div>
-    <%= list.name %>
-  </div>
+  <li>
+  <a href="/lists/<%=list.id%>">  <%= list.name %></a>
+  </li>
 <% end %>

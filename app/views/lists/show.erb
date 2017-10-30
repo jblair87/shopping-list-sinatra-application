@@ -1,11 +1,13 @@
-<%= @list.name %><br />
+<h3> <%= @list.name %> </h3>
 
 
 <ul>
  <% @list.items.each do |item| %>
-   <li><a href="/items/<%=item.id%>"><%= item.name %></a></li>
+   <li><a href="/items/<%=item.id%>"><%= item.name %></a>
+   </li>
  <% end%>
  </ul>
  <br />
- <a href ='/items/new' class='btn btn-default'>Add Items</a>
- <a href ='/items/new' class='btn btn-default'>Dashboard</a>
+ <a href ='/items/new' class='btn btn-default btn-sm'>Add Items</a>
+ <a href ='/edit' class='btn btn-default btn-sm'>Edit List</a>
+ <a href ='/lists' class='btn btn-default btn-sm'>Dashboard</a>

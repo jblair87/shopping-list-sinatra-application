@@ -1,15 +1,15 @@
 <h3>Create New Item</h3>
 <form method="POST" action="/items">
   <label for="item_name">Item Name:</label>
-<input type="text" name="name" id="item_name"><br><br>
+<input type="text" name="item[name]" id="item_name"><br><br>
 <label>Choose an existing list</label>
 <%List.all.each do |list|%><br>
-<input type="checkbox" name="list_id" id="<%=list.id %>"
+<input type="checkbox" name="item[list_id]" id="<%=list.name %>"
   value="<%=list.id%>"> <b><%=list.name%><b></input>
  <%end%> <br></br><label>and/or, create a new list:</label>
     <br></br>
     <label>name:</label>
-      <input  type="text" name="list[name]"></input>
+      <input  type="text" name="list[name]" id="list_name"></input>
     <br></br>
    <input type="submit"  class="btn btn-primary" value="Create Item">
 </form>
