@@ -1,3 +1,5 @@
+<section class="jumbotron">
+        <div class="container">
 <h3>Your Lists</h3>
 <br>
   <% @lists.each do |list| %>
@@ -5,3 +7,5 @@
 <a href="/lists/<%=list.id%>"><%=list.name%></a>
 </li>
   <%end%>
+</div>
+     </section>
