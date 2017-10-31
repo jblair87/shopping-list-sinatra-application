@@ -1,6 +1,9 @@
-<h3>Edit List Name</h3>
+<section class="jumbotron">
+  <h3>Edit <%= @list.name %></h3>
+
 <form method="POST" action="/lists/<%=@list.id%>">
-  <label for="list_name">List Name:</label>
-<input type="text" name="name" id="list_name" value="<%= @list.name %>"><br><br>
+  <label>List Name:</label>
+<input type="text" name="list[name]" value="<%= @list.name %>"><br><br>
    <input type="submit"  class="btn btn-primary" value="Update">
 </form>
+</section>

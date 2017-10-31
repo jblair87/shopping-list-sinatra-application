@@ -2,8 +2,7 @@
   <% @items.list.each do |item| %>
 <h3>
 <%=item.list.name%>
+<a href="/items/<%=item.id%>/edit">Edit</a>
+
 </h3>
   <%end%>
-
-  <a href ='/items/new' class='btn btn-default'>Add Items</a>
-    <a href ='/logout' class='btn btn-default'>Log Out</a>

@@ -1,4 +1,5 @@
 <div class="container">
+
 <h3>Create New List</h3>
 <form method="POST" action="/lists">
   <label>List Name:</label>
@@ -8,9 +9,9 @@
 <%Item.all.each do |item|%><br>
   <input type="checkbox" name="list[item_ids][]" id="<%=item.id%>" value="<%=item.id%>"> <%=item.name%></input>
 <%end%>
-<br><br><label>and/or, create a new item:</label>
-    <br></br>
-    <label>name:</label>
+<br><br><label>and/or, create a new item</label>
+  </br>
+    <label>Item Name:</label>
       <input  type="text" name="item[name]"></input>
     <br></br>
    <input type="submit"  class="btn btn-primary" value="Create List">

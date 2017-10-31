@@ -1,4 +1,8 @@
+require 'rack-flash'
+
 class ListsController < ApplicationController
+  use Rack::Flash
+
   get '/lists' do
     if logged_in?
        @lists = List.all
@@ -19,7 +23,8 @@ class ListsController < ApplicationController
     @list.items << Item.create(name: params["item"]["name"])
   end
       @list.save
-    redirect to "/lists/#{@list.id}"
+      flash[:message] = "Successfully created list."
+      redirect to("/lists/#{@list.id}")
   end
 
   get '/lists/:id' do
@@ -35,10 +40,7 @@ class ListsController < ApplicationController
   post '/lists/:id' do
     @list = List.find(params[:id])
     @list.update(params["list"])
-    if !params["item"]["name"].empty?
-      @list.items << Item.create(name: params["item"]["name"])
-    end
-    redirect to "list/#{@list.id}"
+    redirect to "lists/#{@list.id}"
   end
 
   delete '/lists/:id/delete' do

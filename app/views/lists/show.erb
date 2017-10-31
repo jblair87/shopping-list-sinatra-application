@@ -1,3 +1,6 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
 <section class="jumbotron">
 <h3> <%= @list.name %> </h3>
 
@@ -9,6 +12,6 @@
  <% end%>
  </ul>
 <br>
- <a href ='/edit' class='btn btn-primary btn-sm' role="button">Edit List</a>
+ <a href ='/lists/<%=@list.id%>/edit' class='btn btn-primary btn-sm' role="button">Edit List Name</a>
  <a href ='/lists' class='btn btn-primary btn-sm' role="button">Dashboard</a>
 </section>

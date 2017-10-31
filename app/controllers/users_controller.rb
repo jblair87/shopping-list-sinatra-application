@@ -5,7 +5,7 @@ get '/signup' do
 end
 
 post '/signup' do
-  if params.values.include?("")
+  if params[:username] == "" || params[:password] == ""
  redirect to '/signup'
 else
   @user = User.create(params)
@@ -26,13 +26,13 @@ post '/login' do
      session[:user_id] = @user.id
      redirect '/lists'
    else
-     redirect '/login'
+     redirect '/signup'
    end
  end
 
 
  get '/logout' do
-   if logged_in?
+   if session[:user_id] != nil
    session.destroy
       redirect to '/login'
     else
