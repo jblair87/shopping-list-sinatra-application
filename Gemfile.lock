@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/bmabey/database_cleaner.git
-  revision: f1e71657936ad177e19032b9b5efbda28543d0d0
+  revision: 8c14a276ddb8115bb391d59cdf6b706577d29678
   specs:
-    database_cleaner (1.6.1)
+    database_cleaner (1.6.2)
 
 GEM
   remote: http://rubygems.org/
@@ -58,7 +58,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rake (12.1.0)
+    rake (12.2.1)
     require_all (1.4.0)
     ripl (0.7.1)
       bond (~> 0.5.1)
@@ -104,7 +104,7 @@ GEM
       ripl-multi_line (>= 0.2.4)
       ripl-rack (>= 0.2.0)
       sinatra (>= 1.2.1)
-    tzinfo (1.2.3)
+    tzinfo (1.2.4)
       thread_safe (~> 0.1)
     xpath (2.1.0)
       nokogiri (~> 1.3)
