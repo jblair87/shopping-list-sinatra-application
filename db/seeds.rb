@@ -12,3 +12,15 @@ Item.all.each do |item|
   end
   # puts item.inspect
 end
+
+List.all.each do |list|
+  if names.include?(list.name)
+    list.destroy
+  else
+    names.push(list.name)
+  end
+  if list.name == "" || list.blank? || list.name.nil?
+  list.destroy
+  end
+#puts list.inspect
+end
