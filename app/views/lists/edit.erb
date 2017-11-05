@@ -4,6 +4,17 @@
 <form method="POST" action="/lists/<%=@list.id%>">
   <label>List Name:</label>
 <input type="text" name="list[name]" value="<%= @list.name %>"><br><br>
-   <input type="submit"  class="btn btn-primary" value="Update">
+<label>Add or remove existing items:</label>
+
+<%Item.all.each do |item|%> <br>
+  <input type="checkbox" name="list[item_ids][]" id="<%= item.id%>" value="<%=item.id%>" <%='checked' if @list.items.include?(item) %>> <%=item.name%></input>
+<%end%>
+<br></br>
+<label>and/or, create a new item:</label>
+<br></br>
+<label>name:</label>
+  <input  type="text" name="item[name]" id="item_name"></input>
+<br></br>
+   <input type="submit"  class="btn btn-primary" value="Update List">
 </form>
 </section>
