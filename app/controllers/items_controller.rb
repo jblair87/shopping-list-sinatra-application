@@ -11,7 +11,6 @@ class ItemsController < ApplicationController
 
   get '/items/new' do
     if logged_in?
-      @lists = List.all
       erb :'items/new'
     else
       redirect to '/login'

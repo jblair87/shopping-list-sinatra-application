@@ -1,7 +1,7 @@
 <p> Here are your lists, <%= @user.username %>
 
 <% @user.lists.each do |list| %>
-  <li>
-  <a href="/lists/<%=list.id%>">  <%= list.name %></a>
-  </li>
+<ul>
+    <li><a href="/lists/<%=list.id%>"><%= list.name %></a></li>
+  </ul>
 <% end %>
