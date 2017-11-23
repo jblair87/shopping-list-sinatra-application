@@ -2,15 +2,20 @@
   <%= flash[:message] %>
 <% end %>
 <section class="jumbotron">
-<h3> <%= @list.name %> </h3>
+        <div class="container">
+          <h2 class="jumbotron-heading"> List Name: <u><%= @list.name %></u> </h2>
+
+</br>
 
 
-<ul>
+<ul class="list-group">
  <% @list.items.each do |item| %>
-   <li><a href="/items/<%=item.id%>"><%= item.name %></a>
+   <li class="list-group-item"><%= item.name %>
    </li>
  <% end%>
  </ul>
 <br>
  <a href ='/lists/<%=@list.id%>/edit' class='btn btn-primary btn-sm' role="button">Edit List</a>
+
+ </div>
 </section>

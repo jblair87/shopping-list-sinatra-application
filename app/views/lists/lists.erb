@@ -1,14 +1,20 @@
 
 <section class="jumbotron">
         <div class="container">
-        <% @lists.each do |list| %>
-          <%= list.name %>
+          <h2 class="jumbotron-heading">Sinatra Shopping Lists</h2>
+</br>
+          <ul class="list-group">
+              <% @lists.each do |list| %>
+            <li class="list-group-item justify-content-between align-items-center d-flex">
 
-          <a href="/lists/<%=list.id%>/edit" class="badge badge-warning">Edit</a>
-          <br />
-          <br />
+          <b> <%= list.name %> </b>
+
+          <a href="/lists/<%=list.id%>" class="badge badge-info">View Info</a>
+</li>
         <!--<h3>Your Lists</h3><a href="/lists/<%=list.id%>"><%=list.name%></a>
         </li>-->
   <%end%>
+</ul>
+
 </div>
      </section>
