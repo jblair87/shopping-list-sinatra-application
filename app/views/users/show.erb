@@ -1,7 +1,22 @@
-<p> Here are your lists, <%= @user.username %>
+<section class="jumbotron text-center">
+        <div class="container">
+          <h2 class="jumbotron-heading">Sinatra Shopping Lists</h2>
+<p class="lead">Create custom shopping lists for your needs.</p>
+<a href="/lists/new" class="btn btn-primary" role="button">Create a List</a>
 
-<% @user.lists.each do |list| %>
-<ul>
-    <li><a href="/lists/<%=list.id%>"><%= list.name %></a></li>
-  </ul>
-<% end %>
+</br>
+          <ul class="list-group">
+              <% @user.lists.each do |list| %>
+            <li class="list-group-item justify-content-between align-items-center d-flex">
+
+          <b> <%= list.name %> </b>
+
+          <a href="/lists/<%=list.id%>" class="badge badge-info">View Info</a>
+</li>
+        <!--<h3>Your Lists</h3><a href="/lists/<%=list.id%>"><%=list.name%></a>
+        </li>-->
+  <%end%>
+</ul>
+
+</div>
+     </section>

@@ -5,7 +5,7 @@ class ListsController < ApplicationController
 
   get '/lists' do
     if logged_in?
-       @lists = List.all
+       @lists = current_user.lists
    erb :'lists/lists'
   else
     redirect to '/login'
@@ -13,7 +13,7 @@ class ListsController < ApplicationController
   end
 
   get '/lists/new' do
-       @items = Item.all
+       @items = current_user.items
       erb :'lists/new'
   end
 
