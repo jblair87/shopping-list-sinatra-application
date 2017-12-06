@@ -59,9 +59,8 @@ body > .container {
   <% if logged_in? %>
 
 
-  <a class="nav-item nav-link" href="/lists/lists">View Lists</a>
+  <a class="nav-item nav-link" href="/lists">View Lists</a>
   <a class="nav-item nav-link" href="/lists/new">Create New List</a>
-  <a class="nav-item nav-link" href="/items/new">Create New Item</a>
 
   <a class="nav-item nav-link" href="/logout">Log Out</a>
 
@@ -75,6 +74,12 @@ body > .container {
       </nav>
     </header>
       <main role="main" class="container">
+
+        <% if !@error_message.nil? %>
+        <div class="alert alert-warning">
+          <%= @error_message %>
+        </div>
+      <% end %>
 <%= yield %>
 </main>
 <footer class="footer">
