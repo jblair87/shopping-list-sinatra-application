@@ -5,7 +5,7 @@ class ListsController < ApplicationController
 
   get '/lists' do
     if logged_in?
-       @lists = current_user.lists
+       @lists = List.all
    erb :'lists/lists'
   else
     redirect to '/login'
@@ -24,12 +24,12 @@ class ListsController < ApplicationController
   end
       @list.save
       flash[:message] = "Successfully created list."
-      redirect to("/lists/#{@list.id}")
+      redirect '/lists'
   end
 
   get '/lists/:id' do
     @list = List.find(params[:id])
-      erb :'/lists/show'
+      erb :'lists/show'
   end
 
   get '/lists/:id/edit' do
