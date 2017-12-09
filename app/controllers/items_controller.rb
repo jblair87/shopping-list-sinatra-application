@@ -31,14 +31,11 @@ class ItemsController < ApplicationController
       erb :'/items/show'
   end
 
-  post '/items/:id' do
-        @item = Item.create(params[:item])
-        @item.update(params["item"])
-        if !params["list"]["name"].empty?
-          @item.list = List.create(name: params["list"]["name"])
-        end
-        @item.save
-        redirect to "/items/#{@item.id}"
+
+post '/items/:id' do
+   @item = Item.find(params[:id])
+   @item.update(params["item"])
+   redirect to "items/#{@item.id}"
  end
 
   get '/items/:id/edit' do
@@ -47,7 +44,7 @@ class ItemsController < ApplicationController
   end
 
   patch '/items/:id' do
-    @item = current_user.items.find_by(id: params[:id])
+    @item = Item.find_by(id: params[:id])
     if @items
       redirect to "/items/#{params[:id]}/edit"
     else

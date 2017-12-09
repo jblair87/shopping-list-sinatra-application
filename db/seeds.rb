@@ -19,7 +19,7 @@ List.all.each do |list|
   else
     names.push(list.name)
   end
-  if list.name == "" || list.blank? || list.name.nil?
+  if list.name == "" || list.blank? || list.name.nil? 
   list.destroy
   end
 #puts list.inspect

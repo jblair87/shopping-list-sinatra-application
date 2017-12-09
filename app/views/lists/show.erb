@@ -3,14 +3,16 @@
 <% end %>
 <section class="jumbotron">
         <div class="container">
-          <h2 class="jumbotron-heading"> List Name: <u><%= @list.name %></u> </h2>
+          <h2 class="jumbotron-heading"><%= @list.name %> </h2>
 
 </br>
 
 
 <ul class="list-group">
  <% @list.items.each do |item| %>
-   <li class="list-group-item"><%= item.name %>
+   <li class="list-group-item justify-content-between align-items-center d-flex"><%= item.name %>
+     <a href="/items/<%=item.id%>/edit" class="badge badge-secondary">Edit Item</a>
+
    </li>
  <% end%>
  </ul>

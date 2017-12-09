@@ -1,19 +1,17 @@
 <section class="jumbotron">
-  <h1>Edit <%= @list.name %></h1>
-
+  <div class="container">
+<h3 class="jumbotron-heading">Edit <%= @list.name %></h3>
+<br>
 <form method="POST" action="/lists/<%=@list.id%>">
   <label>List Name</label>
 <input type="text" name="list[name]" value="<%= @list.name %>"><br><br>
-<label>Add or remove items created by users:</label>
+<label>Add or remove existing items:</label>
 <%Item.all.each do |item|%> <br>
   <input type="checkbox" name="list[item_ids][]" id="<%= item.id%>" value="<%=item.id%>" <%='checked' if @list.items.include?(item) %>> <%=item.name%></input>
 <%end%>
 <br></br>
    <input type="submit"  class="btn btn-primary" value="Update List">
 </form>
-<br>
-<form action="/lists/<%=@list.id%>/delete" method="POST">
-  <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit"  class="btn btn-danger" value="Delete List" id="submit">
-</form>
+</div>
+
 </section>

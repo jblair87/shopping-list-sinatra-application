@@ -1,5 +1,11 @@
+
+<section class="jumbotron">
+
+          <div class="container">
 <% if flash.has?(:message) %>
   <%= flash[:message] %>
 <% end %>
 <h1><%=@item.name%></h1>
 <a href="/items/<%=@item.id%>/edit"  class="btn btn-primary">Edit</a>
+</div>
+</section>
