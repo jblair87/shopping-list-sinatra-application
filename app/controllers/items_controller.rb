@@ -19,9 +19,6 @@ class ItemsController < ApplicationController
 
   post '/items' do
         @item = Item.create(params[:item])
-        if !params["list"]["name"].empty?
-          @item.list = List.create(name: params["list"]["name"])
-        end
         @item.save
         redirect to "/items/#{@item.id}"
  end

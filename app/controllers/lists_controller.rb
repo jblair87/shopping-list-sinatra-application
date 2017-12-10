@@ -19,9 +19,6 @@ class ListsController < ApplicationController
 
   post '/lists' do
     @list = List.create(params[:list])
-    if !params["item"]["name"].empty?
-    @list.items << Item.create(name: params["item"]["name"])
-  end
       @list.save
       flash[:message] = "Successfully created list."
       redirect '/lists'
