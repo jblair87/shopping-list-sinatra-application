@@ -40,9 +40,9 @@ end
 
 get '/login' do
   if !logged_in?
-        erb :'users/login'
+        erb:'users/login'
       else
-        redirect '/lists'
+        redirect to '/lists'
       end
     end
 
