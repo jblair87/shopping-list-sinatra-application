@@ -51,14 +51,14 @@ GEM
     pry-nav (0.2.4)
       pry (>= 0.9.10, < 0.11.0)
     public_suffix (3.0.1)
-    rack (2.0.3)
+    rack (2.2.2)
     rack-flash3 (1.0.5)
       rack
     rack-protection (2.0.0)
       rack
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
-    rake (12.3.0)
+    rake (13.0.1)
     require_all (1.4.0)
     ripl (0.7.1)
       bond (~> 0.5.1)
@@ -119,6 +119,7 @@ DEPENDENCIES
   database_cleaner!
   pry
   pry-nav
+  rack (>= 2.0.8)
   rack-flash3
   rack-test
   rake
@@ -132,4 +133,4 @@ DEPENDENCIES
   tux
 
 BUNDLED WITH
-   1.16.0
+   1.16.1

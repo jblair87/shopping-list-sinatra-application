@@ -17,3 +17,4 @@ gem 'tux'
 gem 'capybara'
 gem 'bcrypt'
 gem 'rack-flash3'
+gem "rack", ">= 2.0.8"
