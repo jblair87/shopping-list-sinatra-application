@@ -1,4 +1,8 @@
 source 'http://rubygems.org'
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+# gem "rails"
+ruby '~> 2.6.1'
 
 gem 'activerecord', :require => 'active_record'
 gem 'pry'
@@ -15,6 +19,7 @@ gem 'tux'
 gem 'bcrypt'
 gem 'rack-flash3'
 gem "rack", ">= 2.0.8"
+gem 'pg'
 
 
 group :test do
