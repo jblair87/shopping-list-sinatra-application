@@ -40,18 +40,9 @@ class ListsController < ApplicationController
     redirect to "lists/#{@list.id}"
   end
 
-  delete '/lists/:id/delete' do
-      if logged_in?
-        @list = List.find_by(params[:id])
-        if @list.user_id == current_user.id
-
-      @list.delete
-        redirect to '/lists'
-      else
-      redirect to '/lists'
-    end
-  else
-        redirect to '/login'
-  end
+  delete '/lists/:id' do
+	@list = List.find(params[:id])
+	@list.destroy
+	redirect '/lists'
 end
 end

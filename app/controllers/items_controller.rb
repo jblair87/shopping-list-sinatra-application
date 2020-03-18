@@ -52,7 +52,7 @@ post '/items/:id' do
     end
   end
 
-  delete '/item/:id' do
+  delete '/items/:id' do
 	@item = Item.find(params[:id])
 	@item.destroy
 	redirect '/'

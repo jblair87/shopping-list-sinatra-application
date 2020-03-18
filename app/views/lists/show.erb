@@ -17,7 +17,10 @@
  <% end%>
  </ul>
 <br>
- <a href ='/lists/<%=@list.id%>/edit' class='btn btn-primary btn-sm' role="button">Edit List</a>
-
+ <a href ='/lists/<%=@list.id%>/edit' class='btn btn-primary btn-sm' style="float:left;" role="button">Edit List</a>
+ <form method="post" action="/lists/<%= @list.id %>">
+   <input type="hidden" name="_method" value="delete" />
+  <input type="submit" class='btn btn-danger btn-sm' style="margin-left:10px;" name = "Delete List" value = "Delete List">
+ </form>
  </div>
 </section>
