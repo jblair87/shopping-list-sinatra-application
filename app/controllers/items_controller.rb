@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   get '/items' do
     if logged_in?
       @items = current_user.items
-   erb :'items/items'
+   erb :'/items'
   else
     redirect to '/login'
     end

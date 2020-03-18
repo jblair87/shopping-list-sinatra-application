@@ -6,11 +6,11 @@
   <%= flash[:message] %>
 <% end %>
 <h1><%=@item.name%></h1>
-<a href="/items/<%=@item.id%>/edit"  class="btn btn-primary">Edit</a>
+<a href="/items/<%=@item.id%>/edit"  class="btn btn-primary" style="float:left">Edit</a>
 
 <form class="" action="/items/<%=@item.id%>" method="post">
   <input type="hidden" name="_method" value="delete">
-  <input type="submit" name="" value="Delete This Item">
+  <input type="submit" name=""class="btn btn-danger" style="margin-left:10px" value="Delete Item">
 </form>
 </div>
 </section>
