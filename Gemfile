@@ -5,21 +5,33 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 ruby '~> 2.6.1'
 
 gem 'activerecord', :require => 'active_record'
-gem 'pry'
 gem 'pry-nav'
-gem 'rake'
 gem 'require_all'
-gem 'shotgun'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
-gem 'sqlite3'
 gem 'thin'
-gem 'tux'
 gem 'bcrypt'
 gem 'rack-flash3'
 gem "rack", ">= 2.0.8"
-gem 'pg'
+
+
+
+group :development, :production do
+  gem 'rake'
+end
+
+
+
+group :development do
+  gem 'shotgun'
+  gem 'tux'
+end
+
+group :development, :test do
+  gem 'pry'
+  gem 'sqlite3'
+end
 
 
 group :test do
