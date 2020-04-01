@@ -11,7 +11,7 @@
 <ul class="list-group">
  <% @list.items.each do |item| %>
    <li class="list-group-item justify-content-between align-items-center d-flex"><%= item.name %>
-     <a href="/items/<%=item.id%>/edit" class="badge badge-secondary">Edit Item</a>
+     <a href="/items/<%=item.id%>" class="badge badge-secondary">Edit Item</a>
 
    </li>
  <% end%>

@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
  end
 
   get '/items/:id' do
+    #dynamic url route
     @item = Item.find(params[:id])
       erb :'/items/show'
   end

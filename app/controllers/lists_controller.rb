@@ -25,13 +25,22 @@ class ListsController < ApplicationController
   end
 
   get '/lists/:id' do
+    #dynamic url route
     @list = List.find(params[:id])
       erb :'lists/show'
   end
 
   get '/lists/:id/edit' do
+    if logged_in?
     @list = List.find(params[:id])
+    if @list && @list.user == current_user
     erb :'/lists/edit'
+  else
+    redirect '/lists'
+end
+else
+   redirect to '/login'
+end
   end
 
   post '/lists/:id' do
@@ -41,8 +50,14 @@ class ListsController < ApplicationController
   end
 
   delete '/lists/:id' do
+  if logged_in?
 	@list = List.find(params[:id])
+  if @list && @list.user == current_user
 	@list.destroy
-	redirect '/lists'
 end
+	redirect '/lists'
+else
+      redirect to '/login'
+    end
+  end
 end
